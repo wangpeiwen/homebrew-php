@@ -65,8 +65,8 @@ class AbstractPhp < Formula
     deprecated_option "with-apache" => "with-httpd24"
     deprecated_option "with-apache22" => "with-httpd22"
 
-    depends_on "homebrew/apache/httpd24" => :optional
-    depends_on "homebrew/apache/httpd22" => :optional
+    depends_on "homebrew/apache/httpd24" => :optional if build.with? "httpd24"
+    depends_on "homebrew/apache/httpd22" => :optional if build.with? "httpd22"
 
     option 'with-cgi', 'Enable building of the CGI executable (implies --without-fpm)'
     option 'with-debug', 'Compile with debugging symbols'
